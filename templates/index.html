@@ -1,8 +1,13 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html>
 <head>
+    <style></style>
     <title>Account Management</title>
-    <link rel="stylesheet" type="text/css" href="styles.css"> <!-- Link to the CSS file -->
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="{{ url_for('static', filename='css/style.css') }}"
+  />
 </head>
 <body>
     <div class="container">
@@ -10,21 +15,75 @@
         <h2>Manage Your Accounts Easily</h2>
         <a href="/view">View All Accounts</a>
         <a href="/search">Search Accounts</a>
+        <a href="/add">Add Accounts</a>
 
-        <h2>Add Account</h2>
-        <form method="POST" action="/add">
-            <label for="name">Name:</label>
-            <input type="text" name="name" required /><br />
-            <label for="user">Username/Email:</label>
-            <input type="text" name="user" required /><br />
-            <label for="password">Password:</label>
-            <input type="password" name="password" required /><br />
-            <label for="category">Category:</label>
-            <input type="text" name="category" required /><br />
-            <label for="cdate">Date:</label>
-            <input type="date" name="cdate" required /><br />
-            <input type="submit" value="Add Account" />
-        </form>
+
+    </div>
+</body>
+</html>-->
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDF8fGJsdXUlMjBiYWNrZ3JvdW5kfGVufDB8fHx8MTYzMzY5NzY5Nw&ixlib=rb-1.2.1&q=80&w=1080');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 20px;
+            color: #fff;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+        .section a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .section a:hover {
+            background: #0056b3;
+        }
+    </style>
+    <title>Account Management</title>
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    />
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Account Management System</h1>
+        <h2>Manage Your Accounts Easily</h2>
+
+        <!-- Admin Section -->
+        <div class="section" id="admin">
+            <h2>Admin Actions</h2>
+            <a href="/admin_login">Admin Login</a> <!-- Link to Admin Login -->
+        </div>
+        <!-- Normal User Section -->
+        <div class="section" id="normal-user">
+            <h2>User Actions</h2>
+            <a href="/add">Add Accounts</a>
+            <a href="/update">Update Account</a>
+        </div>
     </div>
 </body>
 </html>
+

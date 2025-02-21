@@ -15,10 +15,29 @@ def viewall():
     con.close()
     return rows
 
-def search(name="", user="", password="", category=""):
-    con = sqlite3.connect("minedatabase.db")  # Changed the database name to minedatabase.db
+def search(search_value="", search_type=""):
+    con = sqlite3.connect("minedatabase.db")
     cur = con.cursor()
-    cur.execute("SELECT * FROM account WHERE name=? OR user=? OR password=? OR category=?", (name, user, password, category))
+    
+    # Create the base query
+    query = "SELECT * FROM account WHERE 1=1"  # Start with a true condition
+    params = []
+
+    # Adjust the query based on the search type
+    if search_type == "name":
+        query += " AND name=?"
+        params.append(search_value)
+    elif search_type == "user":
+        query += " AND user=?"
+        params.append(search_value)
+    elif search_type == "password":
+        query += " AND password=?"
+        params.append(search_value)
+    elif search_type == "category":
+        query += " AND category=?"
+        params.append(search_value)
+
+    cur.execute(query, params)
     rows = cur.fetchall()
     con.close()
     return rows
