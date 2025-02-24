@@ -3,8 +3,8 @@
 <head>
     <title>Add Account</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
-    <style>
-        body {
+    <!--<style>
+       body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4; /* Light background for contrast */
             margin: 0;
@@ -61,7 +61,7 @@
         a:hover {
             background: #218838; /* Darker green on hover */
         }
-    </style>
+    </style>-->
 </head>
 <body>
     <div class="container">
@@ -73,7 +73,9 @@
             <input type="text" name="user" required autocomplete="off" />
             <label for="password">Password:</label>
             <input type="password" name="password" id="password" required autocomplete="off" />
+            <div>
             <input type="checkbox" onclick="togglePassword()"> Show Password
+            </div>
             <label for="category">Category:</label>
             <input type="text" name="category" required autocomplete="off" />
             <label for="cdate">Date:</label>
