@@ -1,0 +1,23 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "ledger.py",
+        "use": "@vercel/python"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "ledger.py"
+      }
+    ],
+    "env": {
+      "DATABASE_URL": "sqlite:///minedatabase.db"  // Adjust this if needed
+    },
+    "functions": {
+      "ledger.py": {
+        "maxDuration": 10
+      }
+    }
+  }
